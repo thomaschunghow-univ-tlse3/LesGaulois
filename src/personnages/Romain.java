@@ -41,6 +41,11 @@ public class Romain {
 	public void sEquiper(Equipement equipement) {
 		switch (equipement) {
 		case CASQUE: {
+			switch (equipements[0]) {
+			case null: {
+
+			}
+			}
 			break;
 		}
 		case BOUCLIER: {
@@ -50,7 +55,7 @@ public class Romain {
 			throw new IllegalArgumentException("Unexpected value: " + equipement);
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		Romain romain;
 		romain = new Romain("Romain", 5);
@@ -60,8 +65,7 @@ public class Romain {
 		romain.recevoirCoup(2);
 		romain.recevoirCoup(2);
 		romain.recevoirCoup(2);
-		Equipement equipement = Equipement.BOUCLIER;
-		System.out.println(equipement.BOUCLIER);
-		System.out.println(equipement.CASQUE);
+		romain.equipements[0] = Equipement.BOUCLIER;
+		System.out.println(romain.equipements[0]);
 	}
 }
