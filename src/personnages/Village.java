@@ -38,8 +38,8 @@ public class Village {
 
 	public void afficherVillageois(Chef chef) {
 		System.out.println("Dans village du chef " + chef.getNom() + " vivent les légendaires gaulois :");
-		for (int i = 0; i < this.getNbVillageois(); i++) {
-			System.out.println("- " + (this.trouverHabitant(i)).getNom());
+		for (int i = 0; i < getNbVillageois(); i++) {
+			System.out.println("- " + (trouverHabitant(i)).getNom());
 		}
 	}
 
