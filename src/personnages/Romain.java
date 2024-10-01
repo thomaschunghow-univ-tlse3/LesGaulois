@@ -38,21 +38,27 @@ public class Romain {
 		assert (forceInitiale > force);
 	}
 
-	public void sEquiper(Equipement equipement) {
-		switch (equipement) {
-		case CASQUE: {
-			switch (equipements[0]) {
-			case null: {
+	private void ajouterEquipement(Equipement equipement) {
+		equipements[nbEquipement] = equipement;
+		nbEquipement += 1;
+	}
 
-			}
-			}
+	public void sEquiper(Equipement equipement) {
+		switch (nbEquipement) {
+		case 0:
+			ajouterEquipement(equipement);
+			parler("s'équipe avec un " + equipement);
 			break;
-		}
-		case BOUCLIER: {
+		case 1:
+			if (equipements[0] != equipement) {
+				ajouterEquipement(equipement);
+				parler("s'équipe avec un " + equipement);
+			} else
+				parler("possède déjà un " + equipement);
 			break;
-		}
 		default:
-			throw new IllegalArgumentException("Unexpected value: " + equipement);
+			parler("est déjà bien protégé");
+			break;
 		}
 	}
 
@@ -65,7 +71,9 @@ public class Romain {
 		romain.recevoirCoup(2);
 		romain.recevoirCoup(2);
 		romain.recevoirCoup(2);
-		romain.equipements[0] = Equipement.BOUCLIER;
-		System.out.println(romain.equipements[0]);
+		romain.sEquiper(Equipement.CASQUE);
+		romain.sEquiper(Equipement.CASQUE);
+		romain.sEquiper(Equipement.BOUCLIER);
+		romain.sEquiper(Equipement.BOUCLIER);
 	}
 }
